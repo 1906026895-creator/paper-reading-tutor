@@ -124,7 +124,21 @@ skill 支持根据不同目的调整路线：
 
 ## 使用方法
 
-在 Codex 中调用：
+### 在 Claude Code 中
+
+克隆仓库后，skill 位于 `.claude/skills/paper-reading-tutor/`，在该项目工作区中自动加载，直接对话即可触发：
+
+```text
+带我精读这篇论文。我基础较弱，先给文章地图，再一次讲一段；遇到概念停下来解释，讲完让我复述。
+```
+
+也可以指定任务：
+
+```text
+讲解这篇论文的 Figure 2，重点解释实验设计、坐标轴、误差条、统计分析，以及这张图如何支持文章主旨。
+```
+
+### 在 Codex 中
 
 ```text
 请使用 $paper-reading-tutor 带我精读这篇论文。我基础较弱，先给文章地图，再一次讲一段；遇到概念停下来解释，讲完让我复述。
@@ -141,13 +155,20 @@ skill 支持根据不同目的调整路线：
 ## 文件结构
 
 ```text
-paper-reading-tutor/
+.claude/skills/paper-reading-tutor/       # Claude Code skill（项目内自动加载）
 ├── SKILL.md                              # skill 的核心教学流程
-├── agents/openai.yaml                    # Codex 界面名称和默认提示词
 ├── assets/reading-notes-template.md      # 可复制使用的文献笔记模板
 └── references/
     ├── reading-goals.md                  # 阅读目标、筛选和阅读路线
     └── evidence-teaching.md              # 实验、图表、统计和证据链教学规则
+
+paper-reading-tutor/                      # Codex skill
+├── SKILL.md
+├── agents/openai.yaml                    # Codex 界面名称和默认提示词
+├── assets/reading-notes-template.md
+└── references/
+    ├── reading-goals.md
+    └── evidence-teaching.md
 ```
 
 ## 设计原则

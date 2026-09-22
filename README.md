@@ -122,11 +122,47 @@ skill 支持根据不同目的调整路线：
 
 笔记会区分“AI 已经讲过哪些内容”和“你已经通过复述展示了哪些理解”。暂停时保存已读位置、下一单元、未解概念、待核对图表和理解状态，下一次可以直接继续。
 
+## 安装
+
+### 方式一：项目级（零配置，推荐）
+
+克隆仓库，在仓库目录中启动 Claude Code 即可——`.claude/skills/` 下的 skill 会被自动加载，无需任何额外安装步骤：
+
+```bash
+git clone https://github.com/1906026895-creator/paper-reading-tutor.git
+cd paper-reading-tutor
+claude
+```
+
+如果想让 skill 在**另一个项目**中可用，把 skill 文件夹复制到该项目的 `.claude/skills/` 下：
+
+```bash
+cp -R .claude/skills/paper-reading-tutor <你的项目>/.claude/skills/
+```
+
+### 方式二：全局安装（所有项目可用）
+
+复制到用户级技能目录 `~/.claude/skills/`，之后在任意项目中都能触发：
+
+```bash
+mkdir -p ~/.claude/skills
+cp -R .claude/skills/paper-reading-tutor ~/.claude/skills/
+```
+
+安装完成后可随时检查是否就位：
+
+```bash
+ls ~/.claude/skills/paper-reading-tutor
+# 应看到 SKILL.md、assets/、references/
+```
+
+更新 skill 时重新执行 `cp -R` 覆盖即可；也可以直接在 `~/.claude/skills/paper-reading-tutor` 里 `git pull`（若用 git clone 安装）。
+
 ## 使用方法
 
 ### 在 Claude Code 中
 
-克隆仓库后，skill 位于 `.claude/skills/paper-reading-tutor/`，在该项目工作区中自动加载，直接对话即可触发：
+按上文安装后，在对话中直接说明需求即可触发：
 
 ```text
 带我精读这篇论文。我基础较弱，先给文章地图，再一次讲一段；遇到概念停下来解释，讲完让我复述。

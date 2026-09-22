@@ -165,7 +165,7 @@ ls ~/.claude/skills/paper-reading-tutor
 
 ### 在 Claude Code 中
 
-按上文安装后，在对话中直接说明需求即可触发：
+按上文安装后，在对话中直接说明需求即可自动触发：
 
 ```text
 带我精读这篇论文。我基础较弱，先给文章地图，再一次讲一段；遇到概念停下来解释，讲完让我复述。
@@ -176,6 +176,14 @@ ls ~/.claude/skills/paper-reading-tutor
 ```text
 讲解这篇论文的 Figure 2，重点解释实验设计、坐标轴、误差条、统计分析，以及这张图如何支持文章主旨。
 ```
+
+想用斜杠命令显式调用（类似 Codex 的用法），把仓库的 `.claude/commands/paper-reading-tutor.md` 复制到 `~/.claude/commands/`（全局）或项目 `.claude/commands/`（项目级），然后：
+
+```text
+/paper-reading-tutor <论文文本、PDF 路径、题名、DOI 或链接>
+```
+
+说明：Claude Code 的 skill 本身不提供斜杠入口，靠描述自动触发；上面的命令文件是包装层，负责显式调起 skill。
 
 ### 在 Codex 中
 

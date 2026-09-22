@@ -1,0 +1,4 @@
+interface:
+  display_name: "文献精读老师"
+  short_description: "像学课文一样逐段吃透论文，串联概念、实验、数据与主旨，并检查理解"
+  default_prompt: "请使用 $paper-reading-tutor 像老师一样带我精读这篇论文：先给文章地图，再一次讲一段，讲清句子作用、概念和证据，并让我复述。"

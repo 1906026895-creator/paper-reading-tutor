@@ -142,21 +142,24 @@ cp -R .claude/skills/paper-reading-tutor <你的项目>/.claude/skills/
 
 ### 方式二：全局安装（所有项目可用）
 
-复制到用户级技能目录 `~/.claude/skills/`，之后在任意项目中都能触发：
+把 skill 装到用户级技能目录 `~/.claude/skills/`，之后在任意项目中都能触发。**在任意目录**执行（无需先手动 clone 仓库）：
 
 ```bash
+git clone https://github.com/1906026895-creator/paper-reading-tutor.git /tmp/paper-reading-tutor
 mkdir -p ~/.claude/skills
-cp -R .claude/skills/paper-reading-tutor ~/.claude/skills/
+cp -R /tmp/paper-reading-tutor/.claude/skills/paper-reading-tutor ~/.claude/skills/
 ```
 
-安装完成后可随时检查是否就位：
+如果已经按方式一 clone 过仓库，也可以直接进入仓库目录执行 `cp -R .claude/skills/paper-reading-tutor ~/.claude/skills/`，效果相同。
+
+检查是否就位：
 
 ```bash
 ls ~/.claude/skills/paper-reading-tutor
 # 应看到 SKILL.md、assets/、references/
 ```
 
-更新 skill 时重新执行 `cp -R` 覆盖即可；也可以直接在 `~/.claude/skills/paper-reading-tutor` 里 `git pull`（若用 git clone 安装）。
+看到 `identical (not copied)` 提示说明该 skill 已经安装过，无需重复操作。更新 skill 时重新执行上面的 clone + `cp -R` 命令覆盖即可。
 
 ## 使用方法
 
